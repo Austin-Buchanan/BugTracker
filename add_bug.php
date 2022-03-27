@@ -3,18 +3,26 @@
     <h1>Add Bug</h1>
     <form action="add_bug_controller.php" method="post" id="add_bug_form">
         <input type="hidden" name="action" value="add_bug">
-        <label for="softwareName">Software Name:</label>
-        <input type="text" id="softwareName" name="softwareName"><br>
-        <label for="urgency">Urgency:</label>
-        <select id="urgency" name="urgency">
+        <div class="form-group">
+            <label for="softwareName">Software Name:</label>
+        </div>    
+        <input type="text" id="softwareName" name="softwareName" class="form-control"><br>
+        <div class="form-group">
+            <label for="urgency">Urgency:</label>
+        </div>
+        <select id="urgency" name="urgency" class="form-control">
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
         </select><br>
-        <label for="shortDesc">Short Description:</label>
-        <input type="text" id="shortDesc" name="shortDesc"><br>
-        <label for="longDesc">Description:</label><br>
-        <textarea id="longDesc" name="longDesc"></textarea><br>
+        <div class="form-group">
+            <label for="shortDesc">Short Description:</label>
+        </div>    
+        <input type="text" id="shortDesc" name="shortDesc" class="form-control"><br>
+        <div class="form-group">
+            <label for="longDesc">Description:</label><br>
+        </div>
+        <textarea id="longDesc" name="longDesc" class="form-control"></textarea><br>
         <input type="submit" value="Submit">
     </form>
 </main>

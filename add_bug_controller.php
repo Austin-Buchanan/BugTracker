@@ -1,5 +1,4 @@
 <?php
-require('./model/Database.php');
 require('./model/BugDB.php');
 
 $action = filter_input(INPUT_POST, 'action');
@@ -14,6 +13,7 @@ if ($action == 'add_bug') {
         include('./errors/error.php');
     } else {
         BugDB::add_bug($userID, $swName, substr($urgency, 0, 1), $shortDesc, $longDesc);
+        include('./index.php');
     }
 } else {
     $error = "No action given.";

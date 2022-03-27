@@ -3,8 +3,11 @@
 ?>
 <main>
     <h1>Index</h1>
-    <a href='./add_bug.php'>Add Bug</a>
-    <a href='./read_all_bugs.php'>All Bugs</a>
+    <div id="pageLinks">
+        <a href='./add_bug.php' class="pageLink">Add Bug</a><br>
+        <a href='./read_all_bugs.php' class="pageLink">All Bugs</a>
+    </div>
+
 </main>
 
 <?php include './view/footer.php';    
