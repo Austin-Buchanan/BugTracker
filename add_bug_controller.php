@@ -1,6 +1,6 @@
 <?php
-require('./model/database.php');
-require('./model/bug_db.php');
+require('./model/Database.php');
+require('./model/BugDB.php');
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == 'add_bug') {
@@ -13,7 +13,7 @@ if ($action == 'add_bug') {
         $error = "Invalid data. Check all fields and try again.";
         include('./errors/error.php');
     } else {
-        add_bug($userID, $swName, substr($urgency, 0, 1), $shortDesc, $longDesc);
+        BugDB::add_bug($userID, $swName, substr($urgency, 0, 1), $shortDesc, $longDesc);
     }
 } else {
     $error = "No action given.";

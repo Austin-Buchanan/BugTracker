@@ -1,6 +1,9 @@
 <?php
-function add_bug($userID, $swName, $urgency, $shortDesc, $longDesc) {
-    global $db;
+require('Bug.php');
+
+class BugDB {
+  public static function add_bug($userID, $swName, $urgency, $shortDesc, $longDesc) {
+    $db = Database::getDB();
     $query = 'INSERT INTO bugs
                 (UserID, SWName, Urgency, ShortDesc, LongDesc)
               VALUES
@@ -13,4 +16,5 @@ function add_bug($userID, $swName, $urgency, $shortDesc, $longDesc) {
     $statement->bindValue(':longDesc', $longDesc);
     $statement->execute();
     $statement->closeCursor(); 
+  }
 }
