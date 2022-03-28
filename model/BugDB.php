@@ -30,4 +30,12 @@ class BugDB {
     }
     return $bugs;
   }
+
+  public static function searchByBugID($bugID) {
+    $db = Database::getDB();
+    $query = "SELECT * FROM Bugs
+              where BugID = '$bugID'";
+    $result = $db->query($query);
+    // TO DO
+  }
 }
