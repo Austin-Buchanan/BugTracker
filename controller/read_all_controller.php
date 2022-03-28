@@ -1,4 +1,4 @@
 <?php
-require('./model/BugDB.php');
+require('../model/BugDB.php');
 
 $bugs = BugDB::getAllBugs();

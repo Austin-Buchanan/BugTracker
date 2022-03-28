@@ -1,6 +1,6 @@
 <?php
-    include './view/header.php';
-    require('read_all_controller.php');
+    include './header.php';
+    require('../controller/read_all_controller.php');
 ?>
 <main>
 <h1>All Bugs</h1>
@@ -37,4 +37,4 @@
     <?php endforeach ?>
 </table>
 </main>
-<?php include './view/footer.php';  
+<?php include './footer.php';  

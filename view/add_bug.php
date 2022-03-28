@@ -1,7 +1,7 @@
-<?php include './view/header.php'; ?>
+<?php include './header.php'; ?>
 <main>
     <h1>Add Bug</h1>
-    <form action="add_bug_controller.php" method="post" id="add_bug_form">
+    <form action="../controller/add_bug_controller.php" method="post" id="add_bug_form">
         <input type="hidden" name="action" value="add_bug">
         <div class="form-group">
             <label for="softwareName">Software Name:</label>
@@ -26,4 +26,4 @@
         <input type="submit" value="Submit">
     </form>
 </main>
-<?php include './view/footer.php'; ?>
+<?php include './footer.php'; ?>
