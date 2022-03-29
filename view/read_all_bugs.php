@@ -1,6 +1,6 @@
 <?php
     include './header.php';
-    require('../controller/read_all_controller.php');
+    require_once('../controller/read_all_controller.php');
 ?>
 <main>
 <h1>All Bugs</h1>
