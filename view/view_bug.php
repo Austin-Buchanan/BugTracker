@@ -1,9 +1,14 @@
 <?php 
     include 'header.php';
-    require_once('../controller/bug_search_controller.php'); 
+    require_once('../controller/bug_search_controller.php');
+    require_once('../controller/view_bug_controller.php');
 ?>
 <main>
    <h1>Bug View</h1>
+   <form action="../controller/view_bug_controller.php" method="post" id="start_update_form">
+        <input type="hidden" name="action" value="start_update">
+        <input type="submit" value="Update Bug">
+   </form>
    <p>Bug ID: <?php echo $bug->getBugID(); ?></p>
    <p>Software Name: <?php echo $bug->getSWName(); ?></p>
    <p>Urgency: <?php echo $bug->getUrgency(); ?></p>

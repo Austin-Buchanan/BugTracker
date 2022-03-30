@@ -36,6 +36,24 @@ class BugDB {
     $query = "SELECT * FROM Bugs
               where BugID = '$bugID'";
     $result = $db->query($query);
-    // TO DO
+    $bugs = array();
+    foreach ($result as $row) {
+      $bug = new Bug($row['BugID'], $row['UserID'], $row['SWName'], $row['Urgency'], $row['ShortDesc'], $row['LongDesc'], $row['time_created'], $row['time_modified'], $row['Resolution']);
+      $bugs[] = $bug;
+    }
+    return $bugs[0];
+  }
+
+  public static function searchBySWName($swName) {
+    $db = Database::getDB();
+    $query = "SELECT * FROM Bugs
+              where SWName = '$swName'";
+    $result = $db->query($query);
+    $bugs = array();
+    foreach ($result as $row) {
+      $bug = new Bug($row['BugID'], $row['UserID'], $row['SWName'], $row['Urgency'], $row['ShortDesc'], $row['LongDesc'], $row['time_created'], $row['time_modified'], $row['Resolution']);
+      $bugs[] = $bug;
+    }
+    return $bugs[0];
   }
 }
