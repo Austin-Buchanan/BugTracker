@@ -7,6 +7,7 @@
    <h1>Bug View</h1>
    <form action="../controller/view_bug_controller.php" method="post" id="start_update_form">
         <input type="hidden" name="action" value="start_update">
+        <input type="hidden" name="bugID2update" value="<?php echo $bug->getBugID(); ?>">
         <input type="submit" value="Update Bug">
    </form>
    <p>Bug ID: <?php echo $bug->getBugID(); ?></p>
