@@ -13,7 +13,7 @@ if ($action == 'add_bug') {
         include('../errors/error.php');
     } else {
         BugDB::add_bug($userID, $swName, substr($urgency, 0, 1), $shortDesc, $longDesc);
-        header('Location: //localhost/BugTracker/index.php');
+        header('Location: //localhost/BugTracker/view/read_all_bugs.php');
     }
 } else {
     $error = "No action given.";
