@@ -19,8 +19,8 @@ if ($action == 'update_bug') {
             $error = "Invalid data. Check all fields and try again.";
             include('../errors/error.php');
         } else {
-            BugDB::updateBug($bugID2update, $swName, $urgency, $shortDesc, $longDesc, $resolution);
-            //header('Location: //localhost/BugTracker/view/read_all_bugs.php');
+            BugDB::updateBug($bugID2update, $swName, substr($urgency, 0, 1), $shortDesc, $longDesc, $resolution);
+            header('Location: //localhost/BugTracker/view/read_all_bugs.php');
         }
     }   
 }
