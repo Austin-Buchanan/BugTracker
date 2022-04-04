@@ -56,4 +56,41 @@ class BugDB {
     }
     return $bugs[0];
   }
+
+  public static function updateBug($bugID, $swName, $urgency, $shortDesc, $longDesc, $resolution) {
+    $db = Database::getDB();
+    $query = "UPDATE Bugs
+              SET SWName = :swName, Urgency = :urgency, ShortDesc = :shortDesc, LongDesc = :longDesc, time_modified = CURRENT_TIMESTAMP, Resolution = :resolution
+              WHERE BugID = :bugID";
+    try {
+      $statement = $db->prepare($query);
+      $statement->bindValue(':bugID', $bugID);
+      $statement->bindValue(':swName', $swName);
+      $statement->bindValue(':urgency', $urgency);
+      $statement->bindValue(':shortDesc', $shortDesc);
+      $statement->bindValue(':longDesc', $longDesc);
+      $statement->bindValue(':resolution', $resolution);
+      $statement->execute();
+      $statement->closeCursor();
+    } catch (PDOException $e) {
+      $error_message = $e->getMessage();
+      include('../errors/database_error.php');
+      exit();
+    }
+  }
+
+  public static function deleteBug($bugID) {
+    $db = Database::getDB();
+    $query = 'DELETE FROM Bugs WHERE BugID = :bugID';
+    try {
+      $statement = $db->prepare($query);
+      $statement->bindValue(':bugID', $bugID);
+      $statement->execute();
+      $statement->closeCursor();
+    } catch (PDOException $e) {
+      $error_message = $e->getMessage();
+      include('../errors/database_error.php');
+      exit();
+    }
+  }
 }

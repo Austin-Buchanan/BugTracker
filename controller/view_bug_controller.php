@@ -27,4 +27,13 @@ if ($action == 'start_update') {
 
         include('../view/update_bug.php');
     }
+} elseif ($action == 'start_delete') {
+    $bugID2delete = filter_input(INPUT_POST, 'bugID2delete', FILTER_VALIDATE_INT);
+    if ($bugID2delete == NULL) {
+        $error = "Deletion error: could not find bug ID.";
+        include('../errors/error.php');
+    } else {
+        BugDB::deleteBug($bugID2delete);
+        header('Location: //localhost/BugTracker/view/read_all_bugs.php');
+    }
 }

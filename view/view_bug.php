@@ -8,7 +8,12 @@
    <form action="../controller/view_bug_controller.php" method="post" id="start_update_form">
         <input type="hidden" name="action" value="start_update">
         <input type="hidden" name="bugID2update" value="<?php echo $bug->getBugID(); ?>">
-        <input type="submit" value="Update Bug">
+        <input type="submit" value="Update">
+   </form>
+   <form action="../controller/view_bug_controller.php" method="post" id="start_delete_form">
+       <input type="hidden" name="action" value="start_delete">
+       <input type="hidden" name="bugID2delete" value="<?php echo $bug->getBugID(); ?>">
+       <input type="submit" value="Delete">
    </form>
    <p>Bug ID: <?php echo $bug->getBugID(); ?></p>
    <p>Software Name: <?php echo $bug->getSWName(); ?></p>

@@ -4,8 +4,9 @@
 ?>
 <main>
     <h1>Update Bug</h1>
-    <form action="" method="post" id="update_bug_form">
+    <form action="../controller/update_bug_controller.php" method="post" id="update_bug_form">
         <input type="hidden" name="action" value="update_bug">
+        <input type="hidden" name="bugID2update" value="<?php echo $bug_old->getBugID(); ?>"
         <div class="form-group">
             <label for="softwareName">Software Name:</label>
         </div>    
