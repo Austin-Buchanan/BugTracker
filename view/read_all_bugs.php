@@ -4,7 +4,7 @@
 ?>
 <main>
 <h1>All Bugs</h1>
-<table class="table table-striped table-bordered table-hover">
+<table class="table table-striped table-bordered table-hover mx-auto">
     <tr>
       <th>Bug ID</th>
       <th>User ID</th>

@@ -1,8 +1,8 @@
 <?php include './header.php'; ?>
 <main>
     <h1>Search Bug</h1>
-    <p>Search by Bug ID and/or Software Name</p>
-    <form action="../controller/bug_search_controller.php" method="post">
+    <p class="text-center">Search by Bug ID and/or Software Name</p>
+    <form action="../controller/bug_search_controller.php" method="post" class="mx-auto">
         <input type="hidden" name="action" value="search_bug">
         <div class="form-group">
             <label for="bugID">Bug ID:</label>
