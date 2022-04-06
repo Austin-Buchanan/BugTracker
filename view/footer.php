@@ -1,5 +1,5 @@
 <footer>
-    <p><a href="/BugTracker/index.php">Austin's Bug Tracker</a></p>
+    <p><a href="/BugTracker/index.php">Home</a></p>
 </footer>
 </body>
 </html>

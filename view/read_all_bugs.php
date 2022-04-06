@@ -17,7 +17,13 @@
     </tr>
     <?php foreach ($bugs as &$bug) : ?>
         <tr>
-            <td><?php echo $bug->getBugID() ?></td>
+            <td>
+                <form action="../controller/read_all_controller.php" method="post">
+                    <input type="hidden" name="action" value="view_bug">
+                    <input type="hidden" name="bugID2view" value="<?php echo $bug->getBugID() ?>">
+                    <input type="submit" value="<?php echo $bug->getBugID() ?>">
+                </form>
+            </td>
             <td><?php echo $bug->getUserID() ?></td>
             <td><?php echo $bug->getSWName() ?></td>
             <td><?php echo $bug->getUrgency() ?></td>
