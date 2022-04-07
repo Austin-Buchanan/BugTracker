@@ -1,5 +1,9 @@
 <?php
 require_once('../model/BugDB.php');
+require_once('../model/NoteDB.php');
+
+$bugID = $bug->getBugID();
+$notes = NoteDB::getAllBugNotes($bugID);
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == 'start_update') {

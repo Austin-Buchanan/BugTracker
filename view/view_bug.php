@@ -23,7 +23,13 @@
         <p>Long Description: <?php echo $bug->getLongDesc(); ?></p>
         <p>Time Created: <?php echo $bug->getTimeCreated(); ?></p>
         <p>Time Modified: <?php echo $bug->getTimeModified(); ?></p>
-        <p>Resolution: <?php echo $bug->getResolution(); ?></p> 
+        <p>Resolution: <?php echo $bug->getResolution(); ?></p>
+        <p><em>Work Notes</em></p>
+        <div id="workNotesDiv" class="mx-auto">
+            <?php foreach ($notes as &$note) : ?>
+                <p><?php echo $note->getUserID(); ?> at <?php echo $note->getTimeWritten(); ?>: <?php echo $note->getNoteText(); ?></p>
+            <?php endforeach ?>
+        </div> 
    </div>
 
 </main>
