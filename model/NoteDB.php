@@ -1,6 +1,6 @@
 <?php 
-require('Note.php');
-require('Database.php');
+require_once('Note.php');
+require_once('Database.php');
 
 class NoteDB {
     public static function addNote($bugID, $noteText, $userID) {

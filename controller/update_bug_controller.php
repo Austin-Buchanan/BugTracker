@@ -1,5 +1,6 @@
 <?php
 require_once('../model/BugDB.php');
+require_once('../model/NoteDB.php');
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == 'update_bug') {
@@ -21,7 +22,6 @@ if ($action == 'update_bug') {
             include('../errors/error.php');
         } else {
             BugDB::updateBug($bugID2update, $swName, substr($urgency, 0, 1), $shortDesc, $longDesc, $resolution);
-            header('Location: //localhost/BugTracker/view/read_all_bugs.php');
         }
 
         // Handle new work note if there is one
@@ -39,12 +39,10 @@ if ($action == 'update_bug') {
                     include('../errors/error.php');
                     exit();
                 }
-                
-                $bug = BugDB::searchByBugID($bugID2update);
-                include('../view/view/bug.php');
             }
-        }
+        } 
+                
+        $bug = BugDB::searchByBugID($bugID2update);
+        include('../view/view_bug.php');
     }
-    
-
 }
