@@ -30,7 +30,11 @@
         <div class="form-group">
             <label for="resolution">Resolution:</label><br>
         </div>
-        <textarea id="resolution" name="resolution" class="form-control"></textarea><?php echo $bug_old->getResolution(); ?><br>
+        <textarea id="resolution" name="resolution" class="form-control"><?php echo $bug_old->getResolution(); ?></textarea><br>
+        <div class="form-group">
+            <label for="workNote">New Work Note:</label><br>
+        </div>
+        <textarea id="workNote" name="workNote" class="form-control"></textarea>
         <input type="submit" value="Update">
     </form>
 </main>

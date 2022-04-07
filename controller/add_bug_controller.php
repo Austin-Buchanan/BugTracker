@@ -3,7 +3,7 @@ require_once('../model/BugDB.php');
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == 'add_bug') {
-    $userID = 'default';
+    $userID = 0; // default... replace later
     $swName = filter_input(INPUT_POST, 'softwareName');
     $urgency = filter_input(INPUT_POST, 'urgency');
     $shortDesc = filter_input(INPUT_POST, 'shortDesc');

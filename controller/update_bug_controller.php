@@ -3,6 +3,7 @@ require_once('../model/BugDB.php');
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == 'update_bug') {
+    // Update main bug 
     $bugID2update = filter_input(INPUT_POST, 'bugID2update', FILTER_VALIDATE_INT);
     if ($bugID2update == NULL) {
         $error = "Update error: could not find bug ID.";
@@ -22,5 +23,28 @@ if ($action == 'update_bug') {
             BugDB::updateBug($bugID2update, $swName, substr($urgency, 0, 1), $shortDesc, $longDesc, $resolution);
             header('Location: //localhost/BugTracker/view/read_all_bugs.php');
         }
-    }   
+
+        // Handle new work note if there is one
+        $noteText = filter_input(INPUT_POST, 'workNote');
+        if ($noteText != NULL) {
+            // make sure the input has content besides spaces
+            $noteText_trimmed = trim($noteText);
+            if ($noteText != "") {
+                // add note to TicketNotes table
+                $userID = 0; // default... replace later
+                try {
+                    NoteDB::addNote($bugID2update, $noteText, $userID);
+                } catch (Exception $e) {
+                    $error = $e->getMessage();
+                    include('../errors/error.php');
+                    exit();
+                }
+                
+                $bug = BugDB::searchByBugID($bugID2update);
+                include('../view/view/bug.php');
+            }
+        }
+    }
+    
+
 }
