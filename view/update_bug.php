@@ -6,7 +6,7 @@
     <h1>Update Bug</h1>
     <form action="../controller/update_bug_controller.php" method="post" id="update_bug_form" class="mx-auto">
         <input type="hidden" name="action" value="update_bug">
-        <input type="hidden" name="bugID2update" value="<?php echo $bug_old->getBugID(); ?>"
+        <input type="hidden" name="bugID" value="<?php echo $bug_old->getBugID(); ?>">
         <div class="form-group">
             <label for="softwareName">Software Name:</label>
         </div>    
@@ -37,5 +37,13 @@
         <textarea id="workNote" name="workNote" class="form-control"></textarea>
         <input type="submit" value="Update">
     </form>
+    <div class="p-5 mb-4 bg-light rounded-3">
+            <h4>Work Notes</h4>
+            <div id="workNotesDiv" class="mx-auto">
+                <?php foreach ($ticketnotes as &$ticketnote) : ?>
+                    <p><?php echo $ticketnote->getUserID(); ?> at <?php echo $ticketnote->getTimeWritten(); ?>: <?php echo $ticketnote->getNoteText(); ?></p>
+                <?php endforeach ?>
+            </div> 
+    </div>
 </main>
 <?php include 'footer.php'; ?>

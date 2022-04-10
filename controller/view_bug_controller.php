@@ -2,16 +2,18 @@
 require_once('../model/BugDB.php');
 require_once('../model/NoteDB.php');
 
-$bugID = $bug->getBugID();
-$notes = NoteDB::getAllBugNotes($bugID);
+$bugID2view = filter_input(INPUT_POST, 'bugID2view', FILTER_VALIDATE_INT);
+$notes = NoteDB::getAllBugNotes($bugID2view);
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == 'start_update') {
     $bugID2update = filter_input(INPUT_POST, 'bugID2update', FILTER_VALIDATE_INT);
+    
     if ($bugID2update == NULL) {
         $error = "Update error: could not find bug ID.";
         include('../errors/error.php');
     } else {
+        $ticketnotes = NoteDB::getAllBugNotes($bugID2update); 
         $bug_old = BugDB::searchByBugID($bugID2update);
         $urgency_set = "";
         $urgency_old = $bug_old->getUrgency();

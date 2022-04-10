@@ -1,5 +1,5 @@
 <?php
-require('../model/BugDB.php');
+require_once('../model/BugDB.php');
 
 $bugs = BugDB::getAllBugs();
 

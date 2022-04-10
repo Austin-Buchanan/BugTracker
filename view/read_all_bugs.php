@@ -1,5 +1,5 @@
 <?php
-    include './header.php';
+    include 'header.php';
     require_once('../controller/read_all_controller.php');
 ?>
 <main>
@@ -43,4 +43,4 @@
     <?php endforeach ?>
 </table>
 </main>
-<?php include './footer.php';  
+<?php include 'footer.php';  

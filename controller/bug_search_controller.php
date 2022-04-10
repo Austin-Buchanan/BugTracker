@@ -1,5 +1,8 @@
 <?php
 require_once('../model/BugDB.php');
+require_once('../model/NoteDB.php');
+
+session_start();
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == 'search_bug') {
@@ -11,6 +14,7 @@ if ($action == 'search_bug') {
         $error = "No result found. Please check input fields and try again.";
         include('../errors/error.php');
     } elseif ($bugID != NULL) {
+        $_SESSION['bugID'] = $bugID;
         $bug = BugDB::searchByBugID($bugID);
         include('../view/view_bug.php');
     } elseif ($swName) {
