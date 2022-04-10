@@ -37,6 +37,10 @@
         <textarea id="workNote" name="workNote" class="form-control"></textarea>
         <input type="submit" value="Update">
     </form>
+    <form action="../controller/file_upload.php" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit" name="submit">UPLOAD</button>
+    </form>
     <div class="p-5 mb-4 bg-light rounded-3">
             <h4>Work Notes</h4>
             <div id="workNotesDiv" class="mx-auto">
