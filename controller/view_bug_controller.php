@@ -1,9 +1,11 @@
 <?php
 require_once('../model/BugDB.php');
 require_once('../model/NoteDB.php');
+require_once('../model/UploadDB.php');
 
 $bugID2view = filter_input(INPUT_POST, 'bugID2view', FILTER_VALIDATE_INT);
 $notes = NoteDB::getAllBugNotes($bugID2view);
+$uploads = UploadDB::getAllBugUploads($bugID2view);
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == 'start_update') {
@@ -14,6 +16,7 @@ if ($action == 'start_update') {
         include('../errors/error.php');
     } else {
         $ticketnotes = NoteDB::getAllBugNotes($bugID2update); 
+        $ticketUploads = UploadDB::getAllBugUploads($bugID2update);
         $bug_old = BugDB::searchByBugID($bugID2update);
         $urgency_set = "";
         $urgency_old = $bug_old->getUrgency();

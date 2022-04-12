@@ -44,12 +44,22 @@
         <button type="submit" name="submit">UPLOAD</button>
     </form>
     <div class="p-5 mb-4 bg-light rounded-3">
-            <h4>Work Notes</h4>
-            <div id="workNotesDiv" class="mx-auto">
-                <?php foreach ($ticketnotes as &$ticketnote) : ?>
-                    <p><?php echo $ticketnote->getUserID(); ?> at <?php echo $ticketnote->getTimeWritten(); ?>: <?php echo $ticketnote->getNoteText(); ?></p>
+            <h4>Attachments</h4>
+            <div id="AttachmentsDiv" class="mx-auto">
+                <?php foreach ($ticketUploads as &$upload) : ?>
+                    <p>
+                        <?php echo $upload->getUserID(); ?> at <?php echo $upload->getTimeCreated(); ?>: <a href="../uploads/<?php echo $upload->getFilename() ?>" target="_blank"><?php echo $upload->getDisplayName(); ?></a>
+                    </p>
                 <?php endforeach ?>
             </div> 
+        </div> 
+    <div class="p-5 mb-4 bg-secondary rounded-3 bg-opacity-25">
+        <h4>Work Notes</h4>
+        <div id="workNotesDiv" class="mx-auto">
+            <?php foreach ($ticketnotes as &$ticketnote) : ?>
+                <p><?php echo $ticketnote->getUserID(); ?> at <?php echo $ticketnote->getTimeWritten(); ?>: <?php echo $ticketnote->getNoteText(); ?></p>
+            <?php endforeach ?>
+        </div> 
     </div>
 </main>
 <?php include 'footer.php'; ?>
