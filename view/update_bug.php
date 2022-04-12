@@ -39,6 +39,8 @@
     </form>
     <form action="../controller/file_upload.php" method="POST" enctype="multipart/form-data">
         <input type="file" name="file">
+        <input type="hidden" name="bugID" value="<?php echo $bug_old->getBugID(); ?>">
+        <input type="hidden" name="userID" value="0">
         <button type="submit" name="submit">UPLOAD</button>
     </form>
     <div class="p-5 mb-4 bg-light rounded-3">
