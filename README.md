@@ -7,6 +7,6 @@ The app was built on a local MySQL instance, although it can be extended for var
 
 Here is a screen recording of the application in-action:
 
-![BugTracker Demo](https://github.com/Austin-Buchanan/BugTracker)
+![BugTracker Demo](https://github.com/Austin-Buchanan/BugTracker/demo/BugTracker_Demo.gif)
 
 
