@@ -9,4 +9,5 @@ Here is a screen recording of the application in-action:
 
 ![BugTracker Demo](https://github.com/Austin-Buchanan/BugTracker/blob/main/demo/BugTracker_Demo.gif)
 
-
+## Motivation
+I made this app shortly after completing a PHP class. I wanted a way to keep track of issues I found in other apps I was making, and I also wanted practice building more CRUD web apps with PHP. 
